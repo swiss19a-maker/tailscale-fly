@@ -1,27 +1,12 @@
-# fly.toml app configuration file generated for tailwings on 2023-05-23T23:44:58+02:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = "tailwings"
+app = "tailscale-fly"
 primary_region = "nrt"
-kill_signal = "SIGINT"
-kill_timeout = "5s"
+
+[build]
+  image = "ghcr.io/lilac/tailscale-fly:latest"
 
 [env]
-  PORT = "41641"
-  # create a reusable auth key and set it:
-  # flyctl secrets set TAILSCALE_AUTH_KEY=tskey-...
-  # ephemeral keys are hardly working for use as exit node as they are ipv6 only
-
-[[services]]
-  protocol = "udp"
-  internal_port = 41641
-  processes = ["app"]
-
-  [[services.ports]]
-    port = 41641
-  [services.concurrency]
-    type = "connections"
-    hard_limit = 100
-    soft_limit = 75
+  TAILSCALE_AUTHKEY = "placeholder"
+  TAILSCALE_HOSTNAME = "placeholder"
+git add fly.toml
+git commit -m "fix: replace fly.toml with correct config"
+git push origin main
