@@ -1,12 +1,12 @@
 
-app = "tailwings"
+app = "tailscale-vpn-wild-haze-7043"
 primary_region = "nrt"
 kill_signal = "SIGINT"
 kill_timeout = "5s"
 
 [env]
   PORT = "41641"
-  TAILSCALE_HOSTNAME = "tailwings"
+  TAILSCALE_HOSTNAME = "tailscale-vpn"
 
 [[services]]
   protocol = "udp"
