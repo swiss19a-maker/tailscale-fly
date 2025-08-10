@@ -1,22 +1,4 @@
-app = "tailscale-fly"
-primary_region = "nrt"
-kill_signal = "SIGINT"
-kill_timeout = "5s"
+git add fly.toml
+git commit -m "fix: full working fly.toml for tailscale-fly"
+git push origin main
 
-[env]
-  PORT = "41641"
-  TAILSCALE_AUTHKEY = "placeholder"
-  TAILSCALE_HOSTNAME = "placeholder"
-
-[[services]]
-  protocol = "udp"
-  internal_port = 41641
-  processes = ["app"]
-
-  [[services.ports]]
-    port = 41641
-
-  [services.concurrency]
-    type = "connections"
-    hard_limit = 100
-    soft_limit = 75
