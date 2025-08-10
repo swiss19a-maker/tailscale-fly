@@ -5,7 +5,8 @@ kill_timeout = "5s"
 
 [env]
   PORT = "41641"
-  # TAILSCALE_AUTH_KEY будет задан через secrets
+  TAILSCALE_AUTHKEY = "placeholder"
+  TAILSCALE_HOSTNAME = "placeholder"
 
 [[services]]
   protocol = "udp"
