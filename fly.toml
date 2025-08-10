@@ -1,13 +1,12 @@
-app = "tailscale-fly"
+app = "tailwings"
 primary_region = "nrt"
 kill_signal = "SIGINT"
 kill_timeout = "5s"
 
 [env]
   PORT = "41641"
-  TAILSCALE_HOSTNAME = "tailscale-fly"
-  # TAILSCALE_AUTHKEY должен быть установлен через secrets:
-  # flyctl secrets set TAILSCALE_AUTHKEY=tskey-...
+  # TAILSCALE_AUTH_KEY должен быть установлен через secrets:
+  # flyctl secrets set TAILSCALE_AUTH_KEY=tskey-...
 
 [[services]]
   protocol = "udp"
@@ -21,3 +20,4 @@ kill_timeout = "5s"
     type = "connections"
     hard_limit = 100
     soft_limit = 75
+
