@@ -7,6 +7,3 @@ primary_region = "nrt"
 [env]
   TAILSCALE_AUTHKEY = "placeholder"
   TAILSCALE_HOSTNAME = "placeholder"
-git add fly.toml
-git commit -m "fix: replace fly.toml with correct config"
-git push origin main
