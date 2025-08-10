@@ -1,9 +1,21 @@
 app = "tailscale-fly"
 primary_region = "nrt"
-
-[build]
-  image = "ghcr.io/lilac/tailscale-fly:latest"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
 
 [env]
-  TAILSCALE_AUTHKEY = "placeholder"
-  TAILSCALE_HOSTNAME = "placeholder"
+  PORT = "41641"
+  # TAILSCALE_AUTH_KEY будет задан через secrets
+
+[[services]]
+  protocol = "udp"
+  internal_port = 41641
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 41641
+
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 100
+    soft_limit = 75
